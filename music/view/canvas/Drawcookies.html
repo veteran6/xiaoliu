@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>饼图</title>
+</head>
+<body>
+	<canvas id="cas" width="600" height="600" style="border: 1px solid blue"></canvas>
+	<script src="Drawcookies.js">
+	</script>
+	<script>
+		var data = [{title : 'Chrome',data : 1000},{title : 'IE',data : 2000},
+		{title : 'FF',data : 800},{title : 'Safari',data : 500},
+		{title : '浏览器',data : 100}];
+
+		Drawcookies("#cas",data,{
+			radius:100,  //半径设置
+			font:"14px 宋体"  //字体设置
+		})	
+	</script>
+</body>
+</html>

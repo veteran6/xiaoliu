@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>立方体</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        html{
+            width: 100%;
+            height:100%;
+        }
+        body{
+            position: relative;
+            width: 100%;
+            height:100%;
+        }
+        #box{
+            width: 300px;
+            height: 300px;
+            margin:200px auto;
+            position: relative;
+            /*perspective:1000px;*/
+            transform-style: preserve-3d;
+            transform: rotateZ(30deg) rotateX(30deg);
+            animation: rotate  10s linear infinite alternate;
+        }
+        /*#box:hover{*/
+            /*animation-play-state: paused;*/
+        /*}*/
+        #box>div{
+            position: absolute;
+            width:100%;
+            height:100%;
+
+        }
+        .left{
+            transform:rotateY(-90deg) translateZ(150px);
+            background-color: transparent;
+        }
+        .right{
+            transform:rotateY(90deg) translateZ(150px);
+            background-color: transparent;
+        }
+        .top{
+            transform:rotateX(90deg) translateZ(150px);
+            background-color: transparent;
+        }
+        .bottom{
+            transform:rotateX(-90deg) translateZ(150px);
+            background-color: transparent;
+        }
+        .before{
+            transform:translateZ(150px);
+            background-color: transparent;
+        }
+        .back{
+            transform:rotateY(180deg) translateZ(150px);
+
+            background-color: transparent;
+        }
+        /*设置li的样式*/
+        #box .public{
+            width: 92px;
+            height: 92px;
+            line-height:97px;
+            border-radius:20px;
+            text-align: center;
+            float: left;
+            margin:4px;
+            color: #000;
+            font-size: 50px;
+        }
+        @keyframes rotate {
+            from{
+                transform: rotateY(0deg) rotateZ(45deg) rotateX(45deg);
+                transform-origin: left ;
+            }
+            to{
+                transform: rotateY(360deg) rotateZ(45deg) rotateX(45deg);
+                transform-origin:left;
+            }
+        }
+        button{
+            position: absolute ;
+            top:0;
+            left:0;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+        </ul>
+    </div>
+    <div class="right">
+        <ul>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+        </ul>
+    </div>
+    <div class="top">
+        <ul>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+        </ul>
+    </div>
+    <div class="bottom">
+        <ul>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+        </ul>
+    </div>
+    <div class="before">
+        <ul>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+        </ul>
+    </div>
+    <div class="back">
+        <ul>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+            <li class="public"></li>
+        </ul>
+    </div>
+</div>
+<script>
+    var imgs=["image/01.jpg","image/02.jpg","image/03.jpg","image/04.jpg",
+        "image/05.jpg","image/06.jpg","image/07.jpg","image/08.jpeg","image/09.jpg",
+        "image/10.jpg","image/11.jpeg","image/12.jpeg",
+        "image/13.jpeg","image/14.jpg","image/15.jpeg","image/16.jpeg",
+        "image/17.jpeg","image/18.jpeg","image/19.jpg","image/20.jpg",
+        "image/21.jpg","image/22.PNG"];
+    var leftli=document.querySelectorAll("li");
+    var anniu=document.createElement("button");
+    anniu.innerText="按钮";
+    document.body.appendChild(anniu);
+        anniu.onclick=function(){
+            var pic=Math.floor(Math.random()*22);
+            var lisj=Math.floor(Math.random()*54);
+            for (var i = 0; i < leftli.length; i++) {
+                leftli[lisj].style.background="url("+imgs[pic]+")";
+                leftli[lisj].style.backgroundSize="cover";
+            }
+        };
+    setInterval(function(){
+        anniu.click();
+    },50)
+
+
+</script>
+</body>
+</html>
